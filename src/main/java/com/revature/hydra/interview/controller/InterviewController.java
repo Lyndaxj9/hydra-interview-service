@@ -58,7 +58,7 @@ public class InterviewController {
     }
 	
 	/**
-	 * Adds/Updates interview for specified Associate
+	 * Adds interview for specified Associate
 	 * @param id
 	 * @param interview
 	 * @return
@@ -68,6 +68,33 @@ public class InterviewController {
     public ResponseEntity<Void> addInterviewByAssociate(@PathVariable Integer id, @RequestBody Interview interview) {
 		log.info("adding interview");
 		interviewService.addInterviewForAssociate(id, interview);
+		return new ResponseEntity<>(HttpStatus.OK);
+    }
+	
+	/**
+	 * Updates interview information
+	 * @param id
+	 * @param interview
+	 * @return
+	 */
+	@RequestMapping(value = "/update/interview/{id}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    //@ResponseBody
+    public ResponseEntity<Void> updateInterview(@PathVariable Integer id, @RequestBody Interview interview) {
+		log.info("updating interview");
+		interviewService.updateInterview(id, interview);
+		return new ResponseEntity<>(HttpStatus.OK);
+    }
+	
+	/**
+	 * Deletes interview based on interviewId
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/delete/interview/{id}", method = RequestMethod.POST)
+    //@ResponseBody
+    public ResponseEntity<Void> deleteInterviewById(@PathVariable Integer id) {
+		log.info("deleting interview");
+		interviewService.delete(id);
 		return new ResponseEntity<>(HttpStatus.OK);
     }
 }

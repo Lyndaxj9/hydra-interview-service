@@ -48,13 +48,39 @@ public class InterviewService {
 	}
 	
 	/**
-	 * Add/Update interview for a particular associate
+	 * Add interview for a particular associate
 	 * @param associateId
 	 * @param interview
 	 */
 	public void addInterviewForAssociate(Integer associateId, Interview interview) {
 		interview.setAssociateId(associateId);
 		interviewRepository.save(interview);
+	}
+	
+	/**
+	 * Update interview for a particular associate
+	 * @param interviewId
+	 * @param interview
+	 */
+	public void updateInterview(Integer interviewId, Interview interview) {
+		interview.setInterviewId(interviewId);
+		interviewRepository.save(interview);
+	}
+	
+	/**
+	 * Delete interview by interviewId
+	 * @param interviewId
+	 */
+	public void delete(Integer interviewId) {
+		interviewRepository.delete(interviewId);
+	}
+	
+	/**
+	 * Delete interview by interview
+	 * @param interview
+	 */
+	public void delete(Interview interview) {
+		interviewRepository.delete(interview);
 	}
 
 	/**
