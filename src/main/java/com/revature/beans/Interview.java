@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -29,19 +30,19 @@ public class Interview implements Serializable {
 	@SequenceGenerator(name = "INTERVIEW_ID_SEQUENCE", sequenceName = "INTERVIEW_ID_SEQUENCE")
 	private Integer interviewId;
 	
-	@NotEmpty
+	@NotNull
 	@Column(name = "ASSOCIATE_ID")
 	private Integer associateId;
 	
-	@NotEmpty
+	@NotNull
 	@Column(name = "INTERVIEW_TYPE_ID")
 	private Integer interviewTypeId;
 	
-	@NotEmpty
+	@NotNull
 	@Column(name = "CLIENT_ID")
 	private Integer clientId;
 	
-	@NotEmpty
+	@NotNull
 	@Column(name = "END_CLIENT_ID")
 	private Integer endClientId;
 	

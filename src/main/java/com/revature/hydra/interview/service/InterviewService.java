@@ -20,7 +20,7 @@ import com.revature.hydra.interview.data.InterviewRepository;
  */
 @Service
 public class InterviewService {
-
+	
 	@Autowired
 	private InterviewRepository interviewRepository;
 
@@ -45,6 +45,16 @@ public class InterviewService {
 	public Map<Integer, Interview> findAllByAssociate(Integer associateId) {
 		List<Interview> li = interviewRepository.findAllByAssociateId(associateId);
 		return createMapping(li);
+	}
+	
+	/**
+	 * Add/Update interview for a particular associate
+	 * @param associateId
+	 * @param interview
+	 */
+	public void addInterviewForAssociate(Integer associateId, Interview interview) {
+		interview.setAssociateId(associateId);
+		interviewRepository.save(interview);
 	}
 
 	/**
