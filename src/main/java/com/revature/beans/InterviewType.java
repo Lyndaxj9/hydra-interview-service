@@ -25,7 +25,7 @@ public class InterviewType implements Serializable {
 	@Id
 	@Column(name = "INTERVIEW_TYPE_ID")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "INTERVIEW_TYPE_ID_SEQUENCE")
-	@SequenceGenerator(name = "INTERVIEW_TYPE_ID_SEQUENCE", sequenceName = "INTERVIEW_TYPE_ID_SEQUENCE", initialValue = 200)
+	@SequenceGenerator(name = "INTERVIEW_TYPE_ID_SEQUENCE", sequenceName = "INTERVIEW_TYPE_ID_SEQUENCE", initialValue = 20)
 	private Integer interviewTypeId;
 	
 	@NotEmpty
