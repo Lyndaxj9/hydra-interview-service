@@ -40,7 +40,6 @@ public class Interview implements Serializable {
 	@Column(name = "CLIENT_ID")
 	private Integer clientId;
 	
-	@NotNull
 	@Column(name = "END_CLIENT_ID")
 	private Integer endClientId;
 	

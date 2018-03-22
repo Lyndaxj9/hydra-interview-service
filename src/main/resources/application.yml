@@ -1,5 +1,5 @@
 server:
-  port: 8091
+  port: 8092
 spring:
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect

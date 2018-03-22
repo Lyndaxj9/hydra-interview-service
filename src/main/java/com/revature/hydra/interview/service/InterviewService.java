@@ -13,7 +13,7 @@ import com.revature.hydra.interview.data.InterviewRepository;
 /**
  * Interview Service
  * 
- * Interview services implementation with communication with InterviewRepository
+ * Interview services implementation of communication with InterviewRepository
  * 
  * @author Omowumi
  *
