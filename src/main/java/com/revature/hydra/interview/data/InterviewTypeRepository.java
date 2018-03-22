@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.revature.beans.Interview;
+import com.revature.beans.InterviewType;
 
 /**
  * InterviewRepository Data Access Object with various methods to communicate with Interview Table
@@ -13,20 +14,12 @@ import com.revature.beans.Interview;
  *
  */
 @Repository
-public interface InterviewRepository extends JpaRepository<Interview, Integer> {
+public interface InterviewTypeRepository extends JpaRepository<InterviewType, Integer> {
 	
 	/**
 	 * Find all Interviews
 	 * 
 	 * @return list of Interviews
 	 */
-	List<Interview> findAll();
-	
-	/**
-	 * Find all interviews by associateId
-	 * 
-	 * @param associateId
-	 * @return list of Interviews
-	 */
-	List<Interview> findAllByAssociateId(Integer associateId);
+	List<InterviewType> findAll();
 }

@@ -14,6 +14,11 @@ import com.revature.beans.Interview;
 import com.revature.hydra.interview.application.InterviewRepositoryServiceApplication;
 import com.revature.hydra.interview.data.InterviewRepository;
 
+/**
+ * Test Class for testing the functionality of the InterviewRespository
+ * @author Omowumi
+ *
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = InterviewRepositoryServiceApplication.class)
 public class InterviewRepositoryTest {

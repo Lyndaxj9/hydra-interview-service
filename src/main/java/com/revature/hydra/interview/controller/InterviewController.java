@@ -32,16 +32,15 @@ public class InterviewController {
 	private InterviewService interviewService;
 	
 	@Autowired
-	public void setClientService(InterviewService interviewService) {
+	public void setInterviewService(InterviewService interviewService) {
 		this.interviewService = interviewService;
 	}
 	
 	/**
 	 * Retrieves all interviews
-	 * @return ResponseEntity<Map<Intege, Interview>>
+	 * @return ResponseEntity<Map<Integer, Interview>>
 	 */
 	@RequestMapping(value = "/all/interview", method = RequestMethod.GET)
-    //@ResponseBody
     public ResponseEntity<Map<Integer, Interview>> findAllInterview() {
 		return new ResponseEntity<>(interviewService.findAll(), HttpStatus.OK);
     }
@@ -52,7 +51,6 @@ public class InterviewController {
 	 * @return ResponseEntity<Map<Intege, Interview>>
 	 */
 	@RequestMapping(value = "/all/interview/associate/{id}", method = RequestMethod.GET)
-    //@ResponseBody
     public ResponseEntity<Map<Integer, Interview>> retrieveAllInterviewByAssociate(@PathVariable Integer id) {
 		return new ResponseEntity<>(interviewService.findAllByAssociate(id), HttpStatus.OK);
     }
