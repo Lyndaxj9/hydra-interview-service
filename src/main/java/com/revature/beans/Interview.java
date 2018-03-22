@@ -22,30 +22,51 @@ import javax.validation.constraints.NotNull;
 public class Interview implements Serializable {
 	private static final long serialVersionUID = -1694191467554072614L;
 
+	/**
+	 * Id of the interview
+	 */
 	@Id
 	@Column(name = "INTERVIEW_ID")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "INTERVIEW_ID_SEQUENCE")
 	@SequenceGenerator(name = "INTERVIEW_ID_SEQUENCE", sequenceName = "INTERVIEW_ID_SEQUENCE", initialValue = 1000)
 	private Integer interviewId;
 	
+	/**
+	 * Id of the associate being interviewed	
+	 */
 	@NotNull
 	@Column(name = "ASSOCIATE_ID")
 	private Integer associateId;
 	
+	/**
+	 * Id of the type of interview
+	 */
 	@NotNull
 	@Column(name = "INTERVIEW_TYPE_ID")
 	private Integer interviewTypeId;
 	
+	/**
+	 * Id of the client being interviewed with
+	 */
 	@NotNull
 	@Column(name = "CLIENT_ID")
 	private Integer clientId;
 	
+	/**
+	 * Id of the client that associate ends up with?
+	 */
 	@Column(name = "END_CLIENT_ID")
 	private Integer endClientId;
 	
+	/**
+	 * Date of the interview
+	 */
 	@Column(name = "INTERVIEW_DATE")
 	private Timestamp interviewDate;
 	
+	/**
+	 * Feedback from the interview
+	 */
 	@Column(name = "INTERVIEW_FEEDBACK", length = 2000)
 	private String interviewFeedback;
 

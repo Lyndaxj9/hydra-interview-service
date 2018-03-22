@@ -1,4 +1,4 @@
--- Populate two tables
+-- Populate the CALIBER_INTERVIEW and CALIBER_INTERVIEW_TYPE tables
 
 Insert into CALIBER_INTERVIEW_TYPE (INTERVIEW_TYPE_ID,INTERVIEW_TYPE_NAME) values (1,'Phone');
 Insert into CALIBER_INTERVIEW_TYPE (INTERVIEW_TYPE_ID,INTERVIEW_TYPE_NAME) values (2,'Online');
