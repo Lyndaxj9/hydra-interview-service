@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.beans.Interview;
 import com.revature.beans.InterviewType;
 import com.revature.hydra.interview.data.InterviewTypeRepository;
 
