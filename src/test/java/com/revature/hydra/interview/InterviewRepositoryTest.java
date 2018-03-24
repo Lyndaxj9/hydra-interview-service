@@ -75,9 +75,6 @@ public class InterviewRepositoryTest {
 	public void test2FindAll() {
 		log.info("test2FindAll()");
 		List<Interview> interviews = interviewRepository.findAll();
-		if(interviews == null) {
-			log.info("null find all");
-		}
 		assertNotNull(interviews);
 	}
 	

@@ -22,12 +22,18 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class InterviewType implements Serializable {
 	private static final long serialVersionUID = 7126570131021707888L;
 
+	/**
+	 * Id of the interview type
+	 */
 	@Id
 	@Column(name = "INTERVIEW_TYPE_ID")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "INTERVIEW_TYPE_ID_SEQUENCE")
 	@SequenceGenerator(name = "INTERVIEW_TYPE_ID_SEQUENCE", sequenceName = "INTERVIEW_TYPE_ID_SEQUENCE", initialValue = 20)
 	private Integer interviewTypeId;
 	
+	/**
+	 * String name of the interview type
+	 */
 	@NotEmpty
 	@Column(name = "INTERVIEW_TYPE_NAME")
 	private String interviewTypeName;
