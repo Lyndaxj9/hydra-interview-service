@@ -17,5 +17,5 @@ The controller can perform the following functions:
 	* findAllInterview(), via a GET to /all/interview
 	* retrieveAllInterviewByAssociate(@PathVariable Integer id), via a GET to /all/interview/associate/{id}
 	* addInterviewByAssociate(@PathVariable Integer id, @RequestBody Interview interview), via a POST to /add/interview/associate/{id}
-	* updateInterview(@PathVariable Integer id, @RequestBody Interview interview), via a POST to /update/interview/{id}
-	* deleteInterviewById(@PathVariable Integer id), via a POST to /delete/interview/{id}
+	* updateInterview(@PathVariable Integer id, @RequestBody Interview interview), via a PUT to /update/interview/{id}
+	* deleteInterviewById(@PathVariable Integer id), via a DELETE to /delete/interview/{id}

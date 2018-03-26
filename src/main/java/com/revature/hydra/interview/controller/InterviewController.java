@@ -75,7 +75,7 @@ public class InterviewController {
 	 * @param interview
 	 * @return
 	 */
-	@RequestMapping(value = "/update/interview/{id}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/update/interview/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     //@ResponseBody
     public ResponseEntity<Void> updateInterview(@PathVariable Integer id, @RequestBody Interview interview) {
 		log.info("updating interview");
@@ -88,7 +88,7 @@ public class InterviewController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping(value = "/delete/interview/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete/interview/{id}", method = RequestMethod.DELETE)
     //@ResponseBody
     public ResponseEntity<Void> deleteInterviewById(@PathVariable Integer id) {
 		log.info("deleting interview");
