@@ -60,7 +60,7 @@ public class InterviewTypeController {
 	 * @param interviewType
 	 * @return ResponseEntity<Void>
 	 */
-	@RequestMapping(value = "/update/interviewtype/{id}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/update/interviewtype/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> updateInterviewType(@PathVariable Integer id, @RequestBody InterviewType interviewType) {
 		interviewTypeService.updateInterview(id, interviewType);
 		return new ResponseEntity<>(HttpStatus.OK);
