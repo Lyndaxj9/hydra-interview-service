@@ -66,7 +66,7 @@ public class InterviewController {
     public ResponseEntity<Void> addInterviewByAssociate(@PathVariable Integer id, @RequestBody Interview interview) {
 		log.info("adding interview");
 		interviewService.addInterviewForAssociate(id, interview);
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.CREATED);
     }
 	
 	/**

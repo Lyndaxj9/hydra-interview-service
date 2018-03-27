@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
  * 
  */
 @Entity
-@Table(name = "CALIBER_INTERVIEW")
+@Table(name = "TF_INTERVIEW")
 public class Interview implements Serializable {
 	private static final long serialVersionUID = -1694191467554072614L;
 

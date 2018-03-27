@@ -18,7 +18,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  *
  */
 @Entity
-@Table(name = "CALIBER_INTERVIEW_TYPE")
+@Table(name = "TF_INTERVIEW_TYPE")
 public class InterviewType implements Serializable {
 	private static final long serialVersionUID = 7126570131021707888L;
 
