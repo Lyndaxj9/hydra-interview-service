@@ -51,7 +51,7 @@ public class InterviewTypeController {
 	@RequestMapping(value = "/add/interviewtype", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> addInterviewType(@RequestBody String interviewTypeName) {
 		interviewTypeService.addInterviewType(interviewTypeName);
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.CREATED);
     }
 	
 	/**
