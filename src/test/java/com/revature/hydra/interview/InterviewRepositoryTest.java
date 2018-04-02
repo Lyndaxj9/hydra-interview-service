@@ -38,7 +38,11 @@ public class InterviewRepositoryTest {
 	Interview testInterview;
 	
 	Integer testId;
-	
+
+	/**
+	 * Create a test interview in table to test on
+	 * @throws Exception
+	 */
 	@Before
 	public void init() {
 		log.info("init()");
@@ -54,6 +58,10 @@ public class InterviewRepositoryTest {
 		testId = testInterview.getInterviewId();
 	}
 	
+	/**
+	 * Remove test interview so that it doesn't cause problems with repeated runs 
+	 * of the test and isn't left in database for production
+	 */
 	@After
 	public void teardown() {
 		log.info("teardown()");
@@ -71,6 +79,9 @@ public class InterviewRepositoryTest {
 		assertTrue(interviewRepository.findAll().contains(testInterview));
 	}*/
 	
+	/**
+	 * Test finding all interviews from table into a list
+	 */
 	@Test
 	public void test2FindAll() {
 		log.info("test2FindAll()");
@@ -78,6 +89,9 @@ public class InterviewRepositoryTest {
 		assertNotNull(interviews);
 	}
 	
+	/**
+	 * Test updating a interview in table
+	 */
 	@Test
 	public void test3UpdateInterview() {
 		log.info("test3UpdateInterview");
@@ -87,13 +101,19 @@ public class InterviewRepositoryTest {
 		assertEquals(updatedInterview.getEndClientId(), testInterview.getEndClientId());
 	}
 
+	/**
+	 * Test finding all interviews for an associate id into a list
+	 */
 	@Test
-	public void test4FindAllByAssociateId() {
-		log.info("test3FindAllByAssociateId()");
+	public void test4FindAllByAssociateIdExists() {
+		log.info("test3FindAllByAssociateIdExists: ");
 		List<Interview> interviews = interviewRepository.findAllByAssociateId(5501);
 		assertNotNull(interviews);
 	}
 	
+	/**
+	 * Test deleting an interview from table
+	 */
 	@Test
 	public void test5DeleteInterview() {
 		log.info("test4DeleteInterview()");

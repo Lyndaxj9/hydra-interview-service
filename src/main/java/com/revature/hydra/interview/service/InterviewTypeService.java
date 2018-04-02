@@ -32,21 +32,38 @@ public class InterviewTypeService {
 		return lit;
 	}
 	
+	/**
+	 * Add an interview type to database
+	 * @param interviewTypeName
+	 */
 	public void addInterviewType(String interviewTypeName) {
 		InterviewType it = new InterviewType();
 		it.setInterviewTypeName(interviewTypeName);
 		interviewTypeRepository.save(it);
 	}
 	
+	/**
+	 * Update an interview type in database
+	 * @param interviewTypeId
+	 * @param interviewType
+	 */
 	public void updateInterview(Integer interviewTypeId, InterviewType interviewType) {
 		interviewType.setInterviewTypeId(interviewTypeId);
 		interviewTypeRepository.save(interviewType);
 	}
 	
+	/**
+	 * Delete an interview type from database by the id
+	 * @param interviewTypeId
+	 */
 	public void delete(Integer interviewTypeId) {
 		interviewTypeRepository.delete(interviewTypeId);
 	}
 	
+	/**
+	 * Delete an interview type from database by the object
+	 * @param interviewType
+	 */
 	public void delete(InterviewType interviewType) {
 		interviewTypeRepository.delete(interviewType);
 	}

@@ -39,6 +39,10 @@ public class InterviewTypeRepositoryTest {
 	
 	Integer testId;
 
+	/**
+	 * Create a test interview type in table to test on
+	 * @throws Exception
+	 */
 	@Before
 	public void init() {
 		log.info("init");
@@ -48,6 +52,10 @@ public class InterviewTypeRepositoryTest {
 		testId = testInterviewType.getInterviewTypeId();
 	}
 	
+	/**
+	 * Remove test interview type so that it doesn't cause problems with repeated runs 
+	 * of the test and isn't left in database for production
+	 */
 	@After
 	public void teardown() {
 		log.info("teardown");
@@ -56,6 +64,9 @@ public class InterviewTypeRepositoryTest {
 		}
 	}
 
+	/**
+	 * Test finding all interview types into a list
+	 */
 	@Test
 	public void test1FindAll() {
 		log.info("test1FindAll");
@@ -63,6 +74,9 @@ public class InterviewTypeRepositoryTest {
 		assertNotNull(interviewTypes);
 	}
 	
+	/**
+	 * Test finding one interview type by id
+	 */
 	@Test
 	public void test2FindOne() {
 		log.info("test2FindOne");
@@ -70,6 +84,9 @@ public class InterviewTypeRepositoryTest {
 		assertEquals(it.getInterviewTypeName(), testInterviewType.getInterviewTypeName());
 	}
 	
+	/**
+	 * Test updating an interview type name
+	 */
 	@Test
 	public void test3Update() {
 		log.info("test3Update");
@@ -78,6 +95,9 @@ public class InterviewTypeRepositoryTest {
 		assertEquals(updatedIt.getInterviewTypeName(), testInterviewType.getInterviewTypeName());
 	}
 	
+	/**
+	 * Test deleting an interview type
+	 */
 	@Test
 	public void test4Delete() {
 		log.info("test4Delete");
