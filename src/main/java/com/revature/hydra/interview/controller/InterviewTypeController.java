@@ -18,7 +18,7 @@ import com.revature.beans.InterviewType;
 import com.revature.hydra.interview.service.InterviewTypeService;
 
 /**
- * Service requests for Interview information
+ * Service requests for Interview Type information
  * @author Omowumi
  *
  */

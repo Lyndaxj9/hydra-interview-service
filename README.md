@@ -19,3 +19,8 @@ The controller can perform the following functions:
 	* addInterviewByAssociate(@PathVariable Integer id, @RequestBody Interview interview), via a POST to /add/interview/associate/{id}
 	* updateInterview(@PathVariable Integer id, @RequestBody Interview interview), via a PUT to /update/interview/{id}
 	* deleteInterviewById(@PathVariable Integer id), via a DELETE to /delete/interview/{id}
+* InterviewTypeController
+	* findAllInterviewTypes(), via a GET to /all/interviewtype
+	* addInterviewType(@RequestBody String interviewTypeName), via a POST to /add/interviewtype
+	* updateInterviewType(@PathVariable Integer id, @RequestBody InterviewType interviewType), via a PUT to /update/interviewtype/{id}
+	* deleteInterviewTypeById(@PathVariable Integer id), via a DELETE to /delete/interviewtype/{id}
