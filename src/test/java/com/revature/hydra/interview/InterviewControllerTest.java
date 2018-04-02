@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Arrays;
 
+import org.apache.log4j.Logger;
 import org.hamcrest.Matchers;
 import org.junit.After;
 import org.junit.Assert;
@@ -41,6 +42,8 @@ import com.revature.hydra.interview.data.InterviewRepository;
 @WebAppConfiguration
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class InterviewControllerTest {
+	private static final Logger log = Logger.getLogger(InterviewControllerTest.class);
+	
 	@Autowired
 	InterviewRepository interviewRepository;
 	
@@ -65,8 +68,13 @@ public class InterviewControllerTest {
 	
 	private Interview testInterview;
 	
+	/**
+	 * Create a test interview in table to test on
+	 * @throws Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
+		log.info("setUp: ");
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 		this.testInterview = new Interview();
 		this.testInterview.setAssociateId(717);
@@ -77,23 +85,38 @@ public class InterviewControllerTest {
 		this.testInterview = interviewRepository.save(testInterview);
 	}
 
+	/**
+	 * Remove test interview so that it doesn't cause problems with repeated runs 
+	 * of the test and isn't left in database for production
+	 */
 	@After
 	public void tearDown() {
+		log.info("tearDown: ");
 		int testId = this.testInterview.getInterviewId();
 		if (this.interviewRepository.findOne(testId) != null) {
 			this.interviewRepository.delete(testId);
 		}
 	}
 
+	/**
+	 * Test receiving all interviews from table
+	 * @throws Exception
+	 */
 	@Test
 	public void test1AllInterviews() throws Exception {
+		log.info("test1AllInterviews: ");
 		this.mockMvc.perform(get("/all/interview"))
 					.andExpect(status().isOk())
 					.andExpect(content().contentType(mediaTypeJson));
 	}
 	
+	/**
+	 * Test receiving all interviews for a specific associate from table
+	 * @throws Exception
+	 */
 	@Test
 	public void test2AllInterviewsForAssociate() throws Exception {
+		log.info("test2AllInterviewsForAssociate: ");
 		this.mockMvc.perform(get("/all/interview/associate/" + this.testInterview.getAssociateId()))
 					.andExpect(status().isOk())
 					.andExpect(content().contentType(mediaTypeJson))
@@ -101,8 +124,13 @@ public class InterviewControllerTest {
 					.andExpect(jsonPath("$[*].interviewFeedback", Matchers.hasItem(this.testInterview.getInterviewFeedback())));
 	}
 	
+	/**
+	 * Test adding an interview for a specific associate
+	 * @throws Exception
+	 */
 	@Test
 	public void test3AddAssociateInterview() throws Exception {
+		log.info("test3AddAssociateInterview: ");
 		Interview addInterview = new Interview();
 		addInterview.setAssociateId(this.testInterview.getAssociateId());
 		addInterview.setClientId(1);
@@ -115,8 +143,13 @@ public class InterviewControllerTest {
 					.andExpect(status().isCreated());
 	}
 	
+	/**
+	 * Test updating an interview
+	 * @throws Exception
+	 */
 	@Test
 	public void test4UpdateInterview() throws Exception {
+		log.info("test4UpdateInterview: ");
 		this.testInterview.setInterviewFeedback("good test feedback");
 		this.mockMvc.perform(put("/update/interview/" + this.testInterview.getInterviewId())
 					.content(this.json(this.testInterview))
@@ -124,13 +157,25 @@ public class InterviewControllerTest {
 					.andExpect(status().isOk());
 	}
 	
+	/**
+	 * Test deleting an interview
+	 * @throws Exception
+	 */
 	@Test
 	public void test5DeleteInterview() throws Exception {
+		log.info("test5DeleteInterview: ");
 		this.mockMvc.perform(delete("/delete/interview/" + this.testInterview.getInterviewId()))
 					.andExpect(status().isOk());
 	}
 	
+	/**
+	 * Used to convert a java object into a json
+	 * @param obj
+	 * @return
+	 * @throws IOException
+	 */
 	protected String json(Object obj) throws IOException {
+		log.info("json: ");
 		MockHttpOutputMessage mockHttpOutputMessage = new MockHttpOutputMessage();
 		this.mappingJackson2HttpMessageConverter.write(obj, MediaType.APPLICATION_JSON, mockHttpOutputMessage);
 		return mockHttpOutputMessage.getBodyAsString();
